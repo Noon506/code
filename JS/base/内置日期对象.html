@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>内置Date对象</title>
+</head>
+
+<body>
+    <script>
+        //打印当前时间。如果没有提供参数，那么新创建的Date对象表示实例化时刻的日期和时间。
+        var date = new Date();
+        console.log('标准1：'+date);
+
+        //打印输入参数的时间
+        date = new Date('December 17, 1993 12:00:00');
+        console.log('这是特定时间：'+date);
+
+        //获取当前年
+        var nowYear = date.getFullYear();//年
+        var nowMonth = date.getMonth() + 1;//月
+        var nowDate = date.getDate();//日
+        var nowDay = date.getDay()//日期函数返值为0-6,0代表星期天，不符合中国人习惯,利用数组下标转换一下。
+        var arr = ['星期天', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+        //合并打印
+        console.log('今天是' + nowYear + '年' + nowMonth + '月' + nowDate + '日' + ' ' + arr[nowDay]);
+
+        //获取时分秒
+        var nowHours = date.getHours();
+        var nowMinutes = date.getMinutes();
+        var nowSeconds = date.getSeconds();
+
+
+        //封装函数,返回值格式08:08:08
+        function getTime() {
+            var time = new Date();
+            var h = time.getHours();
+            h = h < 10 ? '0' + h : h;
+            var m = time.getMinutes();
+            m = m < 10 ? '0' + m : m;
+            var s = time.getSeconds();
+            s = s < 10 ? '0' + s : s;
+            return h + ':' + m + ':' + s;
+        }
+        console.log(getTime());
+
+
+        //获取时间戳
+        //1. 通过valueOf() getTime()
+        var date = new Date;
+        console.log(date.valueOf());
+        console.log(date.getTime());
+        //2. 常用简写，直接在实例化日起对象时在前面加 
+        date = +new Date;
+        console.log(date);
+        //3. H5新增
+        console.log(Date.now());
+    </script>
+</body>
+
+</html>

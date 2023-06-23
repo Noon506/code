@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单内容修改</title>
+</head>
+<body>
+	账号：<input class = 'username' type = 'text' value = '请输入用户名'>
+	</br>
+	密码：<input class = 'password' type = 'password' value = '请输入密码'> 
+	</br>
+	<button>登录</button>
+</body>
+	<script>
+		//1. 事件源
+		var userName = document.getElementsByClassName('username');
+		var passWord = document.getElementsByClassName('password');
+		var btn = document.querySelector('button');
+		// console.log (userName);
+		// console.log (passWord);
+		// console.log (btn);
+		//2. 事件类型
+		//		鼠标点击
+		//3. 事件处理程序：
+		userName.onClick = function () {
+			userName.value = '';
+		}
+		passWord.onClick = function () {
+			userName.value = '';
+		}
+		btn.onClick = function () {
+
+		}
+	</script>
+</html>

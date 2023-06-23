@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //每一个原型对象都有一个constructor属性，它的作用是指向这个原型对象所在的构造函数本身。
+    function Star(name, age) {
+      this.name = name;
+      this.age = age;
+    }
+    // Star.prototype.sing = function () {
+    //   console.log('我会唱歌');
+    // }
+    // let ldh = new Star('刘德华', 18);
+    // console.log(Star);
+    // console.log(Star.prototype);
+
+    // //该属性存在的意义是为了简化对构造函数添加方法的操作。
+    // //之前每添加一个方法，就需要用一次【构造函数名.prototype.方法名 = function(){}】语句。
+    // //在开发中我们可以直接使用对prototype直接进行赋值的方式添加方法，这样代码结构会更加清晰，并且操作简便。
+    // Star.prototype = {
+    //   movies: function(){
+    //     console.log('我会演电影');
+    //   },
+    //   rap: function() {
+    //     console.log('我会rap');
+    //   }
+    // };
+    // //但是上面这种方法有一个非常大的bug，会直接导致原型对象(即prototype)被覆盖,而我们的本意是要向构造函数添加新的方法。
+    // console.log(Star.prototype);
+
+    //要解决这个问题，只需要给constructor属性添加一个值就行，这个值为你需要添加方法的构造函数名。
+    Star.prototype = {
+      constructor: Star,
+      movies: function(){
+        console.log('我会演电影');
+      },
+      rap: function() {
+        console.log('我会rap');
+      }
+    };
+    console.log(Star.prototype);
+
+    //这种直接给原型对象赋值的优先级要高于使用【构造函数名.prototype.方法名 = function(){}】语句。用语句添加方法写在该方法前面，语句添加的方法也会被覆盖
+  </script>
+</body>
+</html>

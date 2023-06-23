@@ -1,0 +1,4 @@
+npm i i5ting_toc -g
+
+在需要转md的文件路径下输入
+i5ting_toc -f XXX.md

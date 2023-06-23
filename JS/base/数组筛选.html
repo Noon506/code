@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>筛选数组</title>
+</head>
+<body>
+    <script>
+        // 目标，把数组里大于10的元素选出来放进一个新数组。
+        var arr = [0,1,5,25,77,99,500];
+        var newArr = [];
+        for(var i = 0; i < arr.length;i++){
+            if(arr[i] > 10){
+                newArr[newArr.length] = arr[i];
+            }
+        }
+        console.log(newArr);
+
+        // 目标，把数组里面重复的元素去掉。
+        // 创建一个新数组，把旧数组里的不是目标元素的元素提取出来，然后放进去。
+        var arr = [0,23,0,1,0,56];
+        var newArr = [];
+        for(var i = 0; i < arr.length; i++){
+            if(arr[i] !== 0){
+                newArr[newArr.length] = arr[i];
+            }
+        } 
+        console.log(newArr);
+
+        // 目标，反转数组。
+        var arr = ['重庆','成都','上海','广州','哈萨克斯坦','乌兹别克斯坦','巴基斯坦']
+        var newArr = [];
+        for(var i = arr.length - 1; i >= 0; i--){
+                newArr[newArr.length] = arr[i];
+        }
+        console.log(newArr);
+
+    </script>
+</body>
+</html>

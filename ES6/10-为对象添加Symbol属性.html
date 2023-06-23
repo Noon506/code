@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //第一种方法
+    const game = {
+      name :'俄罗斯方块',
+      up:function(){
+        console.log('up')
+      },
+      down:function(){
+        console.log('down');
+      }
+    };
+
+    const methods = {
+      up:Symbol(),
+      down:Symbol(),
+    }
+
+    game[methods.up] = function(){
+      console.log('变形');
+    }
+    game[methods.down] = function(){
+      console.log('快速下降');
+    }
+    
+    console.log(game);
+    console.log(game[methods.up]);
+
+
+    //第二种方法
+    const youxi = {
+      name: '狼人杀',
+      [Symbol('say')]: function(){
+        console.log('我可以发言');
+      },
+      [Symbol('boom')]: function(){
+        console.log('我可以自爆');
+      }
+    }
+    console.log(youxi);
+  </script>
+</body>
+</html>

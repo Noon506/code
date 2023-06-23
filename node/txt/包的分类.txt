@@ -1,0 +1,20 @@
+包：
+  项目包
+    开发依赖包——npm i -D  //devdependencies节点，仅开发有用
+    核心依赖包——npm i  //dependencies节点，跟随项目部署
+  
+  全局包
+    在执行npm i命令时加了-g参数，则被安装的包为全局包
+    全局包会被安装到C:\Users\用户目录\AppData\Roamin\npm\node_modules下
+      安装全局包 npm i  包名 -g
+      卸载全局包 npm uninstall 包名 -g
+    1、一般只有工具包需要全局安装，因为它提供了好用的终端命令
+    2、判断摸个包是否需要全局安装后才能使用，可以参考官方提供的使用说明
+
+例子：
+  i5ting_toc是一个可以把md文档转换为html页面的小工具，使用步骤如下
+    ——将i5ting_toc安装为全局包
+      npm i i5tign_toc -g
+    ——调用i5ting_toc
+      i5tign_toc -f 要转换的md文件路径 -o
+    （-f 文件；-o 通过默认浏览器打开转换完成的文件）

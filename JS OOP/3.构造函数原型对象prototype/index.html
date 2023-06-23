@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //1.什么是原型对象?
+    //    每个构造函数都有一个叫prototype的属性，这个属性的值是一个对象。
+
+    //2.原型对象的作用是什么？
+    //    存放构造函数的公共属性
+
+    //3.为什么会存在原型对象？
+    //  1)每当我们在new一个实例对象的时候都会新开辟一块内存空间，简单属性会放到这个空间里，而复杂属性，比如方法，会再新开辟一块内存空间进行存放。
+    function Star(name, age) {
+      this.name = name;
+      this.age = age;
+      this.sing = function() {
+        console.log('我会唱歌');
+      }
+    }
+    let ldh = new Star('刘德华', 18);
+    let zxy = new Star('张学友', 28);
+    console.log(ldh.sing === zxy.sing); //false    相同的方法，在内存里的地址不相同。
+
+
+
+    //  2)每实例化一个对象，就会进行一次上述操作。然而每个实例化对象的方法都是相同的，这样就会造成空间和时间的浪费。
+    //  3）如果我们把每个实例化对象的方法放在一个地方，每个对象在调用方法的时候就来访问这个地方，就能很好的节约时间和空间。这个地方的名字就叫prototype，译为原型，它的数据类型是一个对象。
+    function Phone(name, space) {
+      this.name = name;
+      this.space = space;
+    }
+    Phone.prototype.song = function() {
+      console.log('我能听歌');
+    }
+    let mi = new Phone('小米', '128g');
+    mi.song(); //我能听歌
+
+
+    
+    //4.我要怎么访问这个对象里的方法？
+    //  实例化对象名.方法名()
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>冒泡排序</title>
+</head>
+<body>
+    <script>
+        // 需求，把arr数组按升序排列
+        var arr = [234,77,34,7,6,3,1]
+        console.log('原数组为:' + arr);
+        //*这个算法总会把arr[0]与后面的元素依次比较大小。
+        for(var i = 0;i <= arr.length - 1; i++){    //外循环控制总的比较轮数,这个循环不操作数组。
+            
+            for(var j = 0;j <= arr.length - i - 1; j++){    // 内循环控制与数组中的第几个数进行比较，这个循环直接操作数组。
+                // 如果前面一个数比后面一个数大，则交换这两个数的位置。（如果想降序排列，只需要改变大于符号为小于符号）
+                if(arr[j] > arr[j + 1]){
+                    var temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+        console.log(arr);
+
+        // 总结：
+        // 1、在冒泡算法中，内循环和外循环需要控制的比较次数是固定的。i表示在外循环中我们正在进行第几轮比较，j表示在内循环中我们已经比较了几个数。
+        // 2、在外循环中，我们假设数组元素有n个，那么i控制的次数就是n-1次，表示我们总共需要拿出arr.length-1个数来挨个儿地与后面的数字比较,这里减掉的1是我们要拿去跟其他数字做比较的这个数本身。
+        // 3、在内循环中，如果我们正在进行第i+1轮的比较，那么我们只需要从头开始比较到arr[j]这个元素就行了，后面的不需要比较了。
+        // 4、【在这个算法中外循环每循环一次j的值总是会减小1，用来告诉内循环(循环终止条件语句)不必对数组中arr[j]后面的元素再进行比较了，因为他们都已经排好序了。】
+
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>switch</title>
+</head>
+
+<body>
+    <script>
+        var num = 3;
+        //括号里是被匹配对象
+        switch (num) {
+            case 1:
+                console.log(num + "匹配第一个case");
+                break;
+            case 2:
+                console.log(num + "匹配第二个case");
+                break;
+            case 3:
+                console.log(num + "匹配第三个case");
+                break;
+            default:
+                console.log("没有找到匹配的选项");
+                break;
+        }
+
+        // 1、 注意，在做匹配的时候，switch语句进行的是全等匹配。
+        // 2、 如果case里面没有break语句，switch语句不会跳出，会继续执行下一个case。
+        // 3、 当需要匹配的值比较固定的时候，则用switch语句比较合适，如果有范围判断，则用if else if语句比较合适。
+        // 4、 分支比较少的时候，用switch比较合适，结构清晰，且执行效率高。
+    </script>
+</body>
+
+</html>

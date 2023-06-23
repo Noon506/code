@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>今年二月有几天</title>
+</head>
+
+<body>
+    <script>
+        // 先判断今年是不是闰年
+        function getRunYear(year) {
+            var year = prompt('请输入年份');
+            var flag = false;
+            if (year % 400 == 0 || year % 4 == 0 && year % 100 != 0) {
+                flag = true;
+            }
+            return flag;
+        }
+
+        // 如果判断函数返回真则是闰年，2月就有29天，否则只有28天
+        function getDay() {
+            if (getRunYear()) {
+                return console.log('今年是闰年，2月份有29天');
+            } else {
+                return console.log('今年是平年，2月份有28天');
+            }
+        }
+
+        getDay();
+    </script>
+</body>
+
+</html>

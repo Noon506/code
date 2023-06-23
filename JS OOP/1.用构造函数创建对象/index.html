@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+  //在es6之前，js并没有类的概念，所有的对象都是通过实例化构造函数进行创建。构造函数是一种特殊的函数，函数名要求首字母大写.
+  function Star(name, age) {
+    this.name = name;
+    this.age = age;
+    this.sing = function () {
+      console.log('我会唱歌');
+    }
+  }
+
+  let ldh = new Star('刘德华', 40);
+  console.log(ldh.name);  //刘德华
+  console.log(ldh.age); //40
+  ldh.sing(); //我会唱歌
+
+  //当我们在new一个实例化对象的时候进行了以下4步操作
+  //1) 创建一个空对象
+  //2) 构造函数里的所有this指向这个空对象
+  //3) 把构造函数里的所有实例成员赋值给该空对象
+  //4) 返回实例化后的对象
+</script>
+
+</html>

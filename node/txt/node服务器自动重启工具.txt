@@ -1,0 +1,6 @@
+##nodemon
+该工具会自动监听代码变化，只要代码发生了变化服务器就会自动重启。
+安装命令
+npm i nodemon -g
+
+该工具在使用中，只需要将要运行的文件命令将node xxx.js改为nodemon xxx.js就好了

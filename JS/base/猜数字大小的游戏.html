@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>猜数字游戏</title>
+</head>
+
+<body>
+    <script>
+        //获取随机数
+        function getRandomInt(min, max) {
+            var min = Math.ceil(min);
+            var max = Math.floor(max);
+            var ranNum = Math.floor(Math.random() * (max - min + 1) + min);
+            return ranNum;
+        }
+
+        //1、开始。
+        alert('猜数字大小的游戏！点击↘“确定”开始游戏。');
+        // 2、获取最小值。
+        var min = Math.ceil(prompt('请规定一个数字范围，最大数和最小数之间至少有一个数。现在请输入最小的那个数字。'));
+        // 3、获取最大值。
+        var max = Math.floor(prompt('请输入最大的那个数字。'));
+        // 4、调用函数获取目标随机数。
+        var ranNum = getRandomInt(min, max);
+
+        console.log(ranNum);//作弊
+
+        // 5、提示数字范围和机会次数。
+        var tolTimes = Math.ceil((max - min) / 2 + 0.1);//有几次机会用来猜出数字。
+        var leTimes = tolTimes - 1;
+        alert('提示：你有' + tolTimes + '次机会来猜出这个数字是多少，包括最大数和最小数。');
+
+        for (i = 1; i <= tolTimes; i++) {
+            if (leTimes >= 0) {
+                var num = prompt('在' + min + '到' + max + '之间猜一个数字') - 0;
+                if (num == ranNum) {
+                    alert('恭喜你，猜对了！刷新页面可以重新开始游戏。');
+                    break;
+                } else if (num < ranNum) {
+                    if (leTimes == 0) {
+                        alert('还是没猜对。你的机会用光了，刷新页面可以重新开始游戏。');
+                        break;
+                    } else {
+                        alert('你猜小了,你还有' + leTimes + '次机会。');
+                        //剩余的猜测次数
+                        leTimes = tolTimes - i - 1;
+                    }
+                } else if (num > ranNum) {
+                    if (leTimes == 0) {
+                        alert('还是没猜对。你的机会用光了，刷新页面可以重新开始游戏。');
+                        break;
+                    } else {
+                        alert('你猜大了,你还有' + leTimes + '次机会。');
+                        //剩余的猜测次数
+                        leTimes = tolTimes - i - 1;
+                    }
+                }
+            } else {
+                alert('还是没猜对。你的机会用光了，刷新页面可以重新开始游戏。');
+                break;
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>

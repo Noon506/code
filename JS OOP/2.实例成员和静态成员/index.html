@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //1.实例成员指在构造函数中用this关键字创造的成员。它们只能通过实例化对象进行访问。
+    //2.静态成员指在构造函数外用构造函数名进行添加的成员，它们只能通过构造函数名进行访问。
+
+    //实例成员——所有由this创造的成员都成为实例成员
+    function Star(name,age){
+      this.name = name;
+      this.age = age;
+      this.sing = function (){
+        console.log('我会唱歌');
+      }
+    }
+
+    let zxy = new Star('张学友', 18);
+    console.log(zxy.name);  //张学友
+    console.log(Star.age);  //unfined     构造函数名是无法访问实例成员的
+
+    //静态成员是用构造函数名向[构造函数内]添加的成员
+    Star.gender = '男';
+    console.log(Star.gender); //男
+    console.log(zxy.gender);  //undefined   实例化对象名是无法访问静态成员的
+  </script>
+</body>
+</html>

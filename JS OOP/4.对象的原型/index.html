@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //在实例化对象中，实际上并没有prototype这个属性，为什么仍然能访问原型对象里面的方法呢？
+    function Star(name, age) {
+      this.name = name;
+      this.age = age;
+    }
+    Star.prototype.sing = function () {
+      console.log('我会唱歌');
+    }
+    let ldh = new Star('刘德华', 18);
+    ldh.sing(); //我会唱歌
+
+
+    //虽然实例化对象中并没有prototype，但是new该对象的时候会自动添加一个叫做 __proto__ 的属性(左右各两个下划线)。该属性的作用是指向原型对象。当实例化对象调用方法的时候，如果本身有这个方法就直接调用，如果没有，就会通过实例化对象的__proto__属性去查找构造函数的原型对象是否有这个需要被调用的方法。
+    console.log(ldh); //可以看到[[Prototype]]的二级属性里有一个__proto__
+
+    //注意：
+    //    prototype和__proto__是等价的
+    //    __proto__存在的意义就是为实例化对象的方法查找提供一条线，这是一个非标准属性，因此在实际开发中不可以使用这个属性,例如不能用它来赋值。
+  </script>
+</body>
+</html>

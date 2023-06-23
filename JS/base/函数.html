@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数</title>
+</head>
+
+<body>
+    <script>
+        // 求数组中的最大值
+        function getArrMax(arr) {
+            if (Array.isArray(arr)) {
+                var max = arr[0];
+                for (var i = 1; i <= arr.length; i++) {
+                    if (arr[i] > max) {
+                        max = arr[i];
+                    }
+                }
+                return max;
+            } else {
+                return '错误：getArrMax()的参数必须是一个数组';
+            }
+        }
+
+        // var result = getArrMax([21,54,1,8,22,84,664,2]);
+        var result = getArrMax('sfr');
+        console.log(result);
+
+        // 求任意个数的最大值【arguments的使用，用于对任意个参数进行操作。这里面其实是一个数组】★★★★★
+        function getMax() {
+            var max = arguments[0];
+            for (var i = 1; i < arguments.length; i++) {
+                if (max < arguments[i]) {
+                    max = arguments[i];
+                }
+            }
+            return max;
+        }
+        console.log(getMax(1, 15, 21, 2));
+        console.log(getMax(66, 126, 1, 20));
+        console.log(getMax(6, 45, 990, 731));
+
+        // 封装数组翻转
+        function reverse(arr) {
+            var newArr = []
+            for (var i = arr.length - 1; i >= 0; i--) {
+                newArr[newArr.length] = arr[i];
+            }
+            return newArr;
+        }
+        var arr1 = [1,2,3,4,5,6]
+        console.log(reverse(arr1));
+        var arr2 = ['心','肝','脾','肺','肾']
+        console.log(reverse(arr2));
+
+        // 封装冒泡排序算法
+        function sort(arr) {
+            for (var i = 0; i < arr.length; i++) {
+                for (var j = 0; j < arr.length - i - 1; j++) {
+                    if (arr[j] > arr[j + 1]) {
+                        var temp = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = temp;
+                    }
+                }
+            }
+            return arr;
+        }
+
+        var arr1 = sort([5, 48, 42, 86, 4]);
+        console.log(arr1);
+        var arr2 = sort([88, 64, 6321, 8]);
+        console.log(arr2);
+    </script>
+</body>
+
+</html>

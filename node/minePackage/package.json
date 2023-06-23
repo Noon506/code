@@ -1,0 +1,11 @@
+{
+  "name": "minepackage",
+  "description": "格式化时间/转义和还原HTML字符",
+  "version": "1.0.0",
+  "main": "index.js",
+  "keywords": [
+    "dateFormat",
+    "escape"
+  ],
+  "license": "ISC"
+}

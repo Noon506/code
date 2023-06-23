@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const friend = {
+      name: '小品',
+      age:18,
+      sing: function(){
+        console.log('唱一首《卖报歌》');
+      }
+    };
+    // let {name,age,sing} = friend;
+
+    // console.log(name);//小品
+    // console.log(age);//18
+    // console.log(sing);//ƒ (){
+    //                     //console.log('唱一首《卖报歌》');
+    //                     //}
+
+    // sing();//唱一首《卖报歌》
+
+    //在实际开发中对象的方法解构赋值用得比较多;冒号后面是别名
+    let {sing : song} = friend;
+    song();
+  </script>
+</body>
+</html>

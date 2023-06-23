@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>选项卡切换</title>
+  <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+  <main>
+    <!-- 标题 -->
+    <div id="tab">
+      <div class="title">选项卡切换</div>
+    </div>
+
+    <!-- 选项卡 -->
+    <div id="labelsBox">
+      <div id="controler">
+        <div id="label">
+          <ul>
+            <li class="liActive"><span class="text">测试1</span><span class="remove">X</span></li>
+            <li><span class="text">测试2</span><span class="remove">X</span></li>
+            <li><span class="text">测试3</span><span class="remove">X</span></li>
+          </ul>
+        </div>
+        <div id="addLabel">+</div>
+      </div>
+
+      <!-- 内容 -->
+      <div id="content">
+        <section class="conActive">测试内容1</section>
+        <section>测试内容2</section>
+        <section>测试内容3</section>
+      </div>
+    </div>
+  </main>
+</body>
+
+<script src="js/labels.js"></script>
+
+</html>

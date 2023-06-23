@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //在ES5中，获取实参用arguments，这里获取的实参放在一个对象里面。
+    function add(a,b,c){
+      console.log(arguments);
+      console.log(a,b,c);
+    }
+    add(1,2)
+    add(3,4);
+    
+    //ES6引入rest参数，获取的实参放在【数组?】里面，这样我们就能使用数组API方法对实参进行操作。rest参数必须放在最后，因为'...'为剩余运算符
+    function fn (a,b,...args){
+      // console.log(a,b,...args);
+      console.log(a);
+      console.log(b);
+      console.log(args);
+    }
+    fn(0,1,2,3,4);
+
+    function fn2(...args){
+      console.log(args);
+    }
+    fn2('张三','李四','王麻子');
+
+    function fn3(a,b,...args){
+      console.log(a);
+      console.log(b);
+      console.log(args);
+    }
+    typeof fn3(1,2,3,4,5,6);
+  </script>
+</body>
+</html>

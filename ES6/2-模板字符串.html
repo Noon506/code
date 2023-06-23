@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>模板字符串</title>
+</head>
+<body>
+  
+  <script>
+    //ES6 引入新的声明字符串的方式： ``
+    //模板字符串有两个特性，1、内容中允许出现换行符；2、可以实现更方便的变量拼接。
+    
+    //1
+    let str = `<ul>
+                <li>重庆</li>
+                <li>北京</li>
+                <li>天津</li>
+                <li>上海</li>
+              </ul>`;
+    console.log(str);
+
+    //2
+    let city = '重庆';
+    let home = `${city}是我的家乡。`;
+    console.log(home);
+  </script>
+</body>
+</html>

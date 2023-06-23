@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>循环</title>
+</head>
+<body>
+    <script>
+        for(var i = 1; i <= 100; i++){
+            console.log("你要开心一点呀~");
+        }
+
+        for(var i = 1; i<=100; i++){
+            if(i == 1){
+                console.log("这个人今年1岁，他出生刚好一年。");
+            }else if(i == 100){
+                console.log("这个人今年100岁了，他去世了。");
+             }
+            //else{
+            //     console.log("这个人今年"+ i +"岁。");
+            // }
+        }
+
+
+        // 求1-100所有整数的累加和
+        var sum = 0;
+        for(var i = 1; i<=100; i++){
+            sum += i;
+        }
+        console.log(sum);
+    </script>
+</body>
+</html>

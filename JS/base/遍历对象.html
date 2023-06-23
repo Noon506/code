@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>遍历对象</title>
+</head>
+<body>
+    <script>
+        // 遍历对象的规范
+        // 1、for(k in 对象名){}
+        // 2、一般我们写作k，或者key
+        // for( k in 对象名){
+        //     console.log(k); //这里打印对象的属性名
+        //     console.log(obj[k]);    //这里打印对象的属性值。这个写法是固定的，必须这样写
+        // }
+
+
+        var obj = {
+            name: '张学友',
+            age: 18,
+            sex: '男',
+            skill: function(){
+                console.log('Sing songs');
+            }
+        }
+
+        for(k in obj){
+            console.log(k);
+            console.log(obj[k]);
+        }
+    </script>
+</body>
+</html>

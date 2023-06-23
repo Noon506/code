@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>postRequest</title>
+  <style>
+    #result {
+      width: 200px;
+      height: 100px;
+      border: solid 1px red;
+    }
+  </style>
+</head>
+
+<body>
+  <button>点我发送post请求</button>
+  <div id="result"></div>
+
+  <script>
+    const btn = document.getElementsByTagName("button")[0];
+    const result = document.getElementById("result");
+
+    //绑定事件
+    btn.addEventListener("click", function () {
+      //创建xhr对象
+      const xhr = new XMLHttpRequest();
+      //初始化请求：请求方式、请求URL
+      xhr.open("post", "http:127.0.0.1:8080/postRequest");
+      //发送请求
+      xhr.send();
+
+      //处理响应数据
+      xhr.onreadystatechange = function () {
+        //如果响应码为4则服务器完成全部响应
+        if (xhr.readyState === 4) {
+          //如果响应无异常则状态码大于等于200且小于300
+          if (xhr.status >= 200 && xhr.status < 300) {
+            result.innerHTML = xhr.response;
+          }
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

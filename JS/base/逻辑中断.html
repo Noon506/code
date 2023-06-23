@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>逻辑中断</title>
+</head>
+<body>
+    <script>
+        // 逻辑与运算中，如果第一个为真，则总是返回第二个；如果第一个为假，则返回第一个，后面的表达式则不再计算。
+            //返回456
+        console.log(123 && 456);
+            //返回字符串"什么是快乐星球"，在连续的与运算中这个规则依然适用。
+        console.log(123 && 456 && 789 && "什么是快乐星球"); 
+            //以下皆返回第一个，0、""、NaN、null、undefined
+        console.log(0 && 123);
+        console.log(NaN && 123+123);
+        console.log(null && 46 && 234*23);
+        console.log(undefined && 123);
+        console.log("" && 123);
+
+        var num = 0;
+        console.log(123 && num++);  //0
+        console.log(num);   //1
+
+        // 而逻辑或运算中的逻辑中断规则跟逻辑与运算刚好相反：如果第一个为真，则总是返回第一个，后面的表达式则再计算；如果第一个为假，则返回第二个。
+        var num = 0;
+        console.log(123 || num++);  //123
+        console.log(num);   //0
+    </script>
+</body>
+</html>

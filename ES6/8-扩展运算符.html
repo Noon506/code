@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div></div>
+  <div></div>
+  <div></div>
+
+  <script>
+    //【...】扩展运算符能将数值转换为以逗号分隔的参数序列
+    // 这个运算符有三个用法。合并数组，伪数组转换为真数组，克隆数组
+    //1. 合并数组
+    const person= ['张三','李四'];
+    const city = ['北京','重庆'];
+    console.log([...person,...city]); // ['张三', '李四', '北京', '重庆']
+
+    //2. 克隆数组
+    const animal = [{
+      '猫':'三花',
+      '橘猫':{
+        gender:'mail',
+        age:3
+      }
+    },'狗','猪'];
+    const pets = [...animal];
+    console.log(pets);
+
+    //3. 伪数组转换为真数组
+    let divs = document.querySelectorAll('div');
+    let arrs = [...divs];
+    console.log(arrs);
+  </script>
+</body>
+</html>

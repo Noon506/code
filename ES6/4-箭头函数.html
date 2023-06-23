@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //ES6允许使用箭头来定义函数
+    let name = "小品";
+    let fn = ()=>{
+      console.log(name);
+    }
+    fn();
+
+    //1、当函数体里只有一条语句的时候可以不用写{}，并且不允许写return。
+    let fn2 = ()=>console.log('Hello world');
+    fn2();  //Hello world
+    
+    //2、在箭头函数里this是静态的，this始终指向函数声明时所在的作用域下this的值.使用call bind apply重新绑定是无效的
+    function getName(){
+      console.log(this.name);
+    }
+    getName2 = ()=>{
+      console.log(this.name);
+    }
+    getName();  //宋航
+    getName2(); //宋航
+    window.name = '宋航';
+    const person = {
+      name:'蜜蜂'
+    }
+    getName.call(person);   //蜜蜂
+    getName2.call(person);  //宋航
+
+    //3、箭头函数不能作为构造函数
+    let Person2 = ()=>{
+      name :this.name;
+      age: this.age;
+    }
+    // new Person2('小品',18);
+    // console.log(person2.name);
+    // console.log(person2.age);
+
+    //4、箭头函数不能使用arguments变量。arguments是用来存实参的。
+    let fn3 = ()=>{
+      console.log(arguments);
+    };
+    //fn3(1,2,3); //arguments is not defined
+
+    //5、当函数只需要传入一个参数的时候，可以不写小括号
+    let fn4 = n=>n*n;
+    console.log( fn4(9));
+  </script>
+</body>
+</html>

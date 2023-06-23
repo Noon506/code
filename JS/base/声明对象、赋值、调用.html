@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>创建对象并赋值</title>
+</head>
+<body>
+    <script>
+        // 一、 字面量声明
+        var obj = {
+        name: '柯南',
+        age: 8,
+        height: '142cm',
+        skill: function(){
+            console.log('扎你脖子！');
+            }
+        };
+        obj.skill();
+        console.log(obj.name);
+        console.log(obj.age);
+        console.log(obj['height']);
+
+        // 二、new 关键字声明
+        var obj2 = new Object();    //创建空对象
+        obj2.name = '鸣人';
+        obj2.age = 22;
+        obj2.sex = '男';
+        obj2.skill = function(){
+            console.log('多重影分身！');
+        }
+
+        console.log(obj2);
+        obj2.skill();
+
+
+        // // 三、构造函数创建对象。如果一次需要声明多个相似对象，用构造函数最简单。构造函数名第一个字母大写。因为是一个封装好的函数，所以传参依然按照函数传参规则进行。
+        // function 构造函数名(){
+        //     this.属性 = 值;
+        //     this.方法 = function(){}
+        // }
+        // new 构造函数名();
+        // 以上就是声明和调用构造函数的方法
+
+        function Star(name, age, sex){
+            this.name = name;
+            this.age = age;
+            this.sex = sex;
+            this.sing = function(sang) {
+                console.log(sang);
+            }
+        }
+        var ldh = new Star('刘德华', 18, '男'); //用new调用一下Star这个函数就创建了一个对象
+        console.log(ldh);
+        console.log(ldh['sex']);
+        ldh.sing('《冰雨》');
+
+        var zxy = new Star('张学友', 19, '男');
+        var lm = new Star('黎明', 20, '男');
+        var gfc = new Star('郭富城', 21, '男');
+
+
+        // ※new一个对象的时候执行下面四个步骤：
+        // 1、在内存中创建一个空对象{}
+        // 2、this指向这个对象
+        // 3、传参，给对象添加属性和方法
+        // 4、返回(return)这个新对象。这也是构造函数不需要写return的原因,即便他是一个函数，这件事被new关键字包圆了。
+    </script>
+</body>
+</html>

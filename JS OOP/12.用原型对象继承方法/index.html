@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function Father(name, age) {
+      this.name = name;
+      this.age = age;
+    }
+    //公共方法
+    Father.prototype.money = function(){
+      console.log('10000');
+    }
+    function Son(name, age, gender) {
+      Father.call(this,name,age);
+      this.gender = gender;
+    }
+
+
+
+    //Son的原型对象指向Father的实例，这样就形成了一个原型链,Son里面没有的方法就会按照原型链向上查找,并且修改子原型对象的方法不会影响到父原型对象.这个实例化对象相当于一个跳板，让子构造函数的原型对象指向了父构造函数的原型对象
+    Son.prototype = new Father();
+    //因为这里的子构造函数的原型对象被实例化对象覆盖，因此需要把子构造函数重新定义一遍
+    Son.prototype.constructor = Son;
+
+
+    //这时候就可以在不影响父构造函数的原型对象的情况下往子原型对象上添加方法了
+    Son.prototype.exame = function(){
+      console.log('我要考试');
+    }
+
+
+
+    let ldh = new Son('刘德华', 18, '男');
+    console.log(ldh);   //Son {name: '刘德华', age: 18, gender: '男'}
+  </script>
+</body>
+
+</html>

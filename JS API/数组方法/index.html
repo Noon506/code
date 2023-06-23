@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let arr = [1, 2, 3, 4, 5, 6];
+
+    //1. forEach() 迭代(遍历)数组 ==> arr.forEach(function(每一个数组元素，下标，数组本身){});该方法无法中断执行，需要中断请用for循环
+    let sum = 0;
+    arr.forEach(function (v, i, arr) {
+      console.log(v);
+      console.log(i);
+      console.log(arr);
+
+      sum += v;
+    });
+    console.log(sum); //21
+
+
+    //2. filter() 筛选数组元素 ===> newArr = arr.filter(function(v,i,[arr]){筛选条件}); 这个方法返回一个新数组.在筛选的过程中也会遍历数组.新数组元素完全来源于原数组，新数组长度小于等于原数组.不对原数组元素进行操作.回调函数提供筛选条件
+    let newArr = arr.filter(function (v) {
+      return v % 2 === 0;
+    });
+    console.log(newArr);  //[2,4,6]
+
+    //3. some() 查找数组中是否有满足条件的元素，返回值是布尔值。满足停止查找，不满足继续查找。语法同上.every()同样的作用，但是是看是否每一个元素都符合回调函数给出的条件
+    let flag = arr.some(function (v) {
+      return v > 1
+    });
+    console.log(flag); //true
+    flag = arr.some(function(v){
+      return v == "刘德华";
+    });
+    console.log(flag);  //false
+
+
+    //4. map() 参数是一个回调函数。循环对原数组每一个元素都进行回调函数给出条件的操作，并返回一个新数组，新数组元素可完全不同于原数组。
+    newArr = arr.map(function(v,i){
+      return v*2;
+    });
+    console.log(newArr);
+  </script>
+</body>
+
+</html>

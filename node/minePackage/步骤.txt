@@ -1,0 +1,21 @@
+准备
+  格式化时间/转义HTML字符/还原HTML字符
+  方法名：dateFormate(时间格式化)
+          htmlEscape(html转义)
+          htmlUnescape(html还原)
+
+初始化包结构
+  新建文件夹作为包的根目录
+  在该文件夹中新建三个文件
+    package.json(包管理配置文件)
+      {
+        "name": "minepackage",   //包名。不一定非要是根目录文件夹名，但建议相同
+        "version": "1.0.0",    //版本号。初始版本号是1.0.0
+        "main": "index.js",    //入口文件名
+        "description": "格式化时间/转义和还原HTML字符",    //包功能描述。通过该描述用户快速了解该包功能
+        "keywords": ["dateFormat","escape"],   //关键字。用于模糊检索。值为数组。
+        "license": "ISC"   //开源协议。官方建议开源协议ISC
+      }
+    index.js(入口文件)
+    README.md(包文档)
+  

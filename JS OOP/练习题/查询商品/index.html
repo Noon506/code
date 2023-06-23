@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    th,
+    td {
+      width: 100px;
+      border: solid 1px black;
+      text-align: center;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    input {
+      width: 30px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class='search'>
+    按照价格查询：<input type="text" class='start'>-<input type="text" class='end'>
+    <button class='search-price'>查询</button>
+    按照商品名查询：<input type="text" class='pname'>
+    <button class='search-pname'>查询</button>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>商品名</th>
+        <th>价格</th>
+      </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+  </table>
+  <script>
+    let data = [
+      {
+        id: 1,
+        pname: '小米',
+        price: 999
+      },
+      {
+        id: 2,
+        pname: 'OPPO',
+        price: 1999
+      },
+      {
+        id: 3,
+        pname: '苹果',
+        price: 2999
+      },
+      {
+        id: 4,
+        pname: '华为',
+        price: 3999
+      },
+    ];
+
+    let tbody = document.querySelector('tbody');
+    let start = document.querySelector('.start');
+    let end = document.querySelector('.end');
+    let search_price = document.querySelector('.search-price');
+    let pname = document.querySelector('.pname');
+    let search_pname = document.querySelector('.search-pname');
+
+    function Rendering(myData) {
+      tbody.innerHTML = '';
+      myData.forEach(function (v) {
+        let tr = document.createElement('tr');
+        tr.className = 'flag';
+        let td = `<td>${v.id}</td><td>${v.pname}</td><td>${v.price}</td>`;
+        tr.innerHTML = td;
+        tbody.appendChild(tr);
+      });
+    }
+
+    //1,初始化渲染
+    Rendering(data);
+    //2,按照价格筛选
+    search_price.addEventListener('click', function () {
+      let newData = data.filter(function (v) {
+        return v.price >= start.value && v.price <= end.value;
+      });
+      Rendering(newData);
+    });
+
+    //3,按照商品名筛选
+    search_pname.addEventListener('click', function () {
+      let arr = []
+      newData = data.some(function (v) {  //some()方法会在查找到对应元素后停止循环，所以效率更高
+        if(pname.value === v.pname){
+          arr.push(v);
+          return true
+        }
+      });
+      Rendering(arr);
+    });
+  </script>
+</body>
+
+</html>

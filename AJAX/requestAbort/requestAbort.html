@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>requestAbort</title>
+</head>
+<body>
+  <button id="send">点击发送ajax请求</button>
+  <button id="abort">中止发送ajax请求</button>
+
+  <script>
+    const send = document.getElementById("send");
+    const abort = document.getElementById("abort");
+    let xhr = null;
+
+    send.addEventListener("click", function(){
+      xhr = new XMLHttpRequest();
+      xhr.open("get", "http://127.0.0.1:8080/requestAbort");
+      xhr.send();
+
+      //中止发送ajax请求
+      abort.addEventListener("click", function(){
+        xhr.abort();
+        abort.innerHTML = "请求已中止";
+      });
+    });
+  </script>
+</body>
+</html>

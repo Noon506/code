@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //在内置对象里添加新方法要用【构造函数名.prototype.方法名 = function(){}】语句，不能用覆盖内置对象的方法。
+    // Array.prototype = {
+    //   sum: function () {
+    //     constructor: Array;
+    //     let sum = 0;
+    //     for (let i = 0; i < this.length; i++) {
+    //       sum += this[i];
+    //     }
+    //     return sum;
+    //   }
+    // }
+
+    let arr = [1,2,3,4];
+    // console.log(arr.sum());   //Error: arr.sum is not a function
+ 
+
+    Array.prototype.sum = function(){
+      let sum = 0;
+        for (let i = 0; i < this.length; i++) {
+          sum += this[i];
+        }
+        return sum;
+    }
+    console.log(arr.sum()); //10
+  </script>
+</body>
+
+</html>
